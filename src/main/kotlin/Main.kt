@@ -1,7 +1,7 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    val order1 = Order(1, 2)
+    val order2 = Order(2, 3)
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    println(order1)  // Вывод информации о заказе 1
+    println(order2)  // Вывод информации о заказе 2
 }
