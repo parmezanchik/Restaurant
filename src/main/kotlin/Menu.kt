@@ -10,6 +10,7 @@ class Menu private constructor() {
 
     internal var items = mutableListOf<MenuItem>()
 
+
     /**
      * Add dish to Menu
      * @param menuItem dish, item of menu
