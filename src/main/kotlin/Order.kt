@@ -5,6 +5,9 @@ class Order(private val orderId: Int, private val tableNum: Int) {
     private val statuses = listOf("Cooking", "Accepted", "Ready to go")  //списки для покращення роботи програми
     private val randomWaiter = waiters[Random.nextInt(waiters.size)]
     private val randomStatus = statuses[Random.nextInt(statuses.size)]   //рандом офіціантів та часу готовки
+    fun addMenuItem(menuItem: MenuItem) {
+        items.add(menuItem)
+    }
     override fun toString(): String {
         //повертаємо на екран користувача інформацію про стави
         return "Order ID: $orderId, Table: $tableNum, Waiter: $randomWaiter, Status: $randomStatus, Items: $items"

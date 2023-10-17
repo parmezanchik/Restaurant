@@ -1,8 +1,8 @@
+import kotlin.random.Random
 import enums.Desert
 import enums.Dish
 
 fun main() {
-
     val clients = mutableListOf<Clients>()
     val menu = Menu.Instance
     menu.AddMenuItem(MainMenuItem("Paperoni","Paperone", 300.0, "Italian", Dish.Pizza, 300))
@@ -12,6 +12,7 @@ fun main() {
     menu.AddMenuItem(DrinkMenuItem("Negroni","Cock", 200.0, "Italian", true, 175))
     menu.AddMenuItem(DrinkMenuItem("Negroni","Cock", 200.0, "Italian", true, 175))
     menu.AddMenuItem(DrinkMenuItem("Negroni","Cock", 200.0, "Italian", true, 175))
+
     while (true) {
         print("Введіть ім'я клієнта: ")
         val name = readLine() ?: ""
@@ -26,7 +27,7 @@ fun main() {
             println("${index + 1}. ${menuItem.name} - ${menuItem.price} грн")
         }
 
-        val order = Order(clients.size, tableNumber)
+        val order = Order(clients.size, client.table_num)
 
         while (true) {
             print("Виберіть блюда або 0, щоб закінчити замовлення: ")
@@ -38,6 +39,7 @@ fun main() {
                 val menuItem = menu.items[choice - 1]
                 client.add_price(menuItem.price.toFloat())
                 client.add_list_dishes(menuItem.name)
+                order.addMenuItem(menuItem) // Add the selected item to the order
             } else {
                 println("Неправильний вибір")
             }
@@ -49,6 +51,9 @@ fun main() {
         }
         println("Загальна сума: ${client.total_price} грн")
 
+        // Print order details
+        println(order.toString())
+
         print("Продовжити замовлення? (так/ні): ")
         val continueOrder = readLine() ?: ""
         if (!continueOrder.equals("так", ignoreCase = true)) {
@@ -56,4 +61,3 @@ fun main() {
         }
     }
 }
-
