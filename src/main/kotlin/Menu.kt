@@ -8,7 +8,8 @@ class Menu private constructor() {
         }
     }
 
-    private var items = mutableListOf<MenuItem>()
+    internal var items = mutableListOf<MenuItem>()
+
 
     /**
      * Add dish to Menu
