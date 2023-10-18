@@ -21,7 +21,7 @@ class Menu private constructor() {
      * Delete dish to Menu
      * @param index index of dish, item of menu to delete
      */
-    fun AddMenuItem(index: Int){
+    fun DelMenuItem(index: Int){
         items.drop(index)
     }
 
@@ -30,6 +30,27 @@ class Menu private constructor() {
      * Returns a string representation of the object.
      */
     override fun toString(): String {
-        return "Menu(items=$items)"
+        var res = "Menu\n"
+
+        res += "---\nMain Dishes:\n"
+        items.forEachIndexed { index, el ->
+            when (el::class.simpleName) {
+                "MainMenuItem" -> res += "${index+1} " + el.name + "\n"
+            }
+        }
+        res += "---\nDeserts:\n"
+        items.forEachIndexed { index, el ->
+            when (el::class.simpleName) {
+                "DesertMenuItem" -> res += "${index+1} " + el.name + "\n"
+            }
+        }
+        res += "---\nDrinks:\n"
+        items.forEachIndexed { index, el ->
+            when (el::class.simpleName) {
+                "DrinkMenuItem" -> res += "${index+1} " + el.name + "\n"
+            }
+        }
+
+        return res
     }
 }
