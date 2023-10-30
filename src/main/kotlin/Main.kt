@@ -1,17 +1,16 @@
-import kotlin.random.Random
 import enums.Desert
 import enums.Dish
 
+
+
 fun main() {
     val clients = mutableListOf<Clients>()
-    val menu = Menu.Instance
-    menu.AddMenuItem(MainMenuItem("Paperoni","Paperone", 300.0, "Italian", Dish.Pizza, 300))
-    menu.AddMenuItem(MainMenuItem("Bober","Bober", 210.0, "American", Dish.Burger, 250))
-    menu.AddMenuItem(DesertMenuItem("Franchesco","Franchesco", 150.0, "Ukrainian", Desert.Cake, 900))
-    menu.AddMenuItem(DesertMenuItem("Franchesco","Franchesco", 150.0, "Ukrainian", Desert.Cake, 900))
-    menu.AddMenuItem(DrinkMenuItem("Negroni","Cock", 200.0, "Italian", true, 175))
-    menu.AddMenuItem(DrinkMenuItem("Negroni","Cock", 200.0, "Italian", true, 175))
-    menu.AddMenuItem(DrinkMenuItem("Negroni","Cock", 200.0, "Italian", true, 175))
+    val serviceMenu = ServiceMenu()
+
+    serviceMenu.addMainMenuItem("Paperoni", "Paperone", 300.0, "Italian", Dish.Pizza, 300)
+    serviceMenu.addMainMenuItem("Bober", "Bober", 210.0, "American", Dish.Burger, 250)
+    serviceMenu.addDesertMenuItem("Franchesco", "Franchesco", 150.0, "Ukrainian", Desert.Cake, 900)
+    serviceMenu.addDrinkMenuItem("Negroni", "Cock", 200.0, "Italian", true, 175)
 
     while (true) {
         print("Введіть ім'я клієнта: ")
@@ -23,7 +22,7 @@ fun main() {
         clients.add(client)
 
         println("Меню:")
-        menu.items.forEachIndexed { index, menuItem ->
+        serviceMenu.getMenuItems().forEachIndexed { index, menuItem ->
             println("${index + 1}. ${menuItem.name} - ${menuItem.price} грн")
         }
 
@@ -35,23 +34,19 @@ fun main() {
 
             if (choice == 0) {
                 break
-            } else if (choice in 1..menu.items.size) {
-                val menuItem = menu.items[choice - 1]
+            } else if (choice in 1..serviceMenu.getMenuItems().size) {
+                val menuItem = serviceMenu.getMenuItems()[choice - 1]
                 client.add_price(menuItem.price.toFloat())
                 client.add_list_dishes(menuItem.name)
-                order.addMenuItem(menuItem) // Add the selected item to the order
+                order.addMenuItem(menuItem)
             } else {
                 println("Неправильний вибір")
             }
         }
 
         println("Замовлення для ${client.name} (столик ${client.table_num}):")
-        for (item in client.list_of_dishes) {
-            println(item)
-        }
+        println("Страви: ${client.list_of_dishes}")
         println("Загальна сума: ${client.total_price} грн")
-
-        // Print order details
         println(order.toString())
 
         print("Продовжити замовлення? (так/ні): ")

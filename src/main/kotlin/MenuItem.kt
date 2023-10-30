@@ -1,18 +1,19 @@
 import enums.Dish
+import enums.Desert
 
 /**
- * Class for dish - item of the Menu
+ * Class for dish items of the Menu
  * @param name name of item
- * @param cuisine cuisine of dish
+ * @param description description of item
  * @param price price in UAH
+ * @param cuisine cuisine of dish
  */
 abstract class MenuItem(
     name: String,
-    description:String,
+    description: String,
     price: Double,
-    cuisine: String,
+    cuisine: String
 ) {
-
     var name = name
         get() = field
         set(value) {
@@ -33,5 +34,4 @@ abstract class MenuItem(
         set(value) {
             field = value
         }
-
 }
