@@ -1,3 +1,5 @@
+package src
+
 import kotlin.random.Random
 class Order(private val orderId: Int, private val tableNum: Int) {
     private val items = mutableListOf<MenuItem>()  //робимо змінювальний список який буде приймати страви
@@ -11,6 +13,6 @@ class Order(private val orderId: Int, private val tableNum: Int) {
     }
     override fun toString(): String {
         //повертаємо на екран користувача інформацію про стави
-        return "Order ID: $orderId, Table: $tableNum, Waiter: $randomWaiter, Status: $randomStatus, Items: $items"
+        return "src.Order ID: $orderId, Table: $tableNum, Waiter: $randomWaiter, Status: $randomStatus, Items: $items"
     }
 }

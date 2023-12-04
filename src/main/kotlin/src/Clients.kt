@@ -1,3 +1,5 @@
+package src
+
 //Клас клієнтів, вхідні дані: Ім'я, тип String; Номер столика, цілочисельний тип; Остаточна ціна, тип Float; Список страв, тип String
 //У класі є методи для розрахунку ціни та списку страв.
 class Clients(var name : String,var table_num : Int,var total_price: Float = 0.toFloat(),var list_of_dishes : List<String> = emptyList()) {
@@ -8,6 +10,7 @@ class Clients(var name : String,var table_num : Int,var total_price: Float = 0.t
             total_price += price
         else
             print("Ціна не може бути більше 0")
+
     }
 
     //Функція створення листу з назв страв, приймає значення страви і додає до строки

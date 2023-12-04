@@ -1,3 +1,5 @@
+package src
+
 class Menu private constructor() {
     /**
      * Singleton with lazy initialization (Instance)
@@ -11,7 +13,7 @@ class Menu private constructor() {
     val items = mutableListOf<MenuItem>()
 
     /**
-     * Add dish to Menu
+     * Add dish to src.Menu
      * @param menuItem dish, item of menu
      */
     fun AddMenuItem(menuItem: MenuItem) {
@@ -19,7 +21,7 @@ class Menu private constructor() {
     }
 
     /**
-     * Delete dish from Menu by index
+     * Delete dish from src.Menu by index
      * @param index index of the dish to delete
      */
     fun RemoveMenuItem(index: Int) {
@@ -32,6 +34,6 @@ class Menu private constructor() {
      * Returns a string representation of the object.
      */
     override fun toString(): String {
-        return "Menu(items=$items)"
+        return "src.Menu(items=$items)"
     }
 }

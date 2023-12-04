@@ -1,4 +1,4 @@
-package enums
+package src.enums
 
 enum class Desert {
     Cake,

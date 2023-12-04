@@ -1,5 +1,9 @@
-import enums.Desert
-import enums.Dish
+package src
+
+import src.enums.Desert
+import src.enums.Dish
+import src.storages.OrderStorage
+
 class ServiceMenu {
 
     private val menu = Menu.Instance
@@ -23,7 +27,7 @@ class ServiceMenu {
         return menu.items
     }
     fun runOrdering() {
-        val clients = mutableListOf<Clients>()
+        val clients = mutableListOf<OrderStorage>()
 
         while (true) {
             print("Enter customer name: ")
@@ -31,10 +35,11 @@ class ServiceMenu {
             print("Enter table number: ")
             val tableNumber = readLine()?.toIntOrNull() ?: 0
 
-            val client = Clients(name, tableNumber)
-            clients.add(client)
+            val client = OrderStorage(clients.size,name, tableNumber)
 
-            println("Menu:")
+            val clientProc = Clients(name, tableNumber)
+
+            println("src.Menu:")
             val menuItems = getMenuItems()
             menuItems.forEachIndexed { index, menuItem ->
                 println("${index + 1}. ${menuItem.name} - ${menuItem.price} UAH")
@@ -50,15 +55,19 @@ class ServiceMenu {
                     break
                 } else if (choice in 1..menuItems.size) {
                     val menuItem = menuItems[choice - 1]
-                    client.add_price(menuItem.price.toFloat())
-                    client.add_list_dishes(menuItem.name)
+                    clientProc.add_price(menuItem.price.toFloat())
+                    clientProc.add_list_dishes(menuItem.name)
                     order.addMenuItem(menuItem)
                 } else {
                     println("Invalid choice")
                 }
             }
+            client.total_price = clientProc.total_price
+            client.list_of_dishes = clientProc.list_of_dishes
+            clients.add(client)
+            println(clients)
 
-            println("Order for ${client.name} (table ${client.table_num}):")
+            println("src.Order for ${client.name} (table ${client.table_num}):")
             for (item in client.list_of_dishes) {
                 println(item)
             }

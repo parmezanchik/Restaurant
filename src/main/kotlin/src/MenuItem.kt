@@ -1,7 +1,7 @@
-import enums.Dish
+package src
 
 /**
- * Class for dish - item of the Menu
+ * Class for dish - item of the src.Menu
  * @param name name of item
  * @param cuisine cuisine of dish
  * @param price price in UAH
