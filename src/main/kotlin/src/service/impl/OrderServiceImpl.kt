@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service
 import src.service.OrderService
 import src.storages.OrderStorage
 
+//бізнес логіка
+
 @Service
 class OrderServiceImpl : OrderService {
     override fun getAllOrder(): List<OrderStorage> {
