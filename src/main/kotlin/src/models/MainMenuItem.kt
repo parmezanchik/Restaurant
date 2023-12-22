@@ -1,30 +1,31 @@
-package src
+package src.models
 
-import src.enums.Desert
+import src.enums.Dish
 
 /**
- * Class for drink items of the src.Menu
- * @param desert type of DesertItem
- * @param kcal count of kilocalories
+ * Class for drink items of the src.models.Menu
+ * @param dish type of dish
+ * @param weight weight of the dish
  */
-class DesertMenuItem(
+class MainMenuItem(
     name: String, description: String, price: Double, cuisine: String,
-    desert: Desert, kcal: Int
+    dish: Dish, weight: Int
 ) : MenuItem(name, description, price, cuisine)
 {
-    var desert = desert
+
+    var dish = dish
         get() = field
         set(value) {
             field = value
         }
-    var kcal = kcal
+    var weight = weight
         get() = field
         set(value) {
             field = value
         }
 
     override fun toString(): String {
-        return "src.DesertMenuItem(desert=$desert, kcal=$kcal)\n"
+        return "src.models.MainMenuItem(dish=$dish, weight=$weight)\n"
     }
 
 

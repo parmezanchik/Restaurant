@@ -1,10 +1,10 @@
 package src
 
-import src.enums.Desert
-import src.enums.Dish
-
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import src.enums.Desert
+import src.enums.Dish
+import src.models.ServiceMenu
 
 
 @SpringBootApplication
@@ -21,5 +21,6 @@ fun main(args:Array<String>) {
     serviceMenu.addDesertMenuItem("Franchesco", "Franchesco", 150.0, "Ukrainian", Desert.Cake, 900)
     serviceMenu.addDrinkMenuItem("Negroni", "Cock", 200.0, "Italian", true, 175)
 
+    runApplication<DemoApplication>(*args);
     serviceMenu.runOrdering()
 }

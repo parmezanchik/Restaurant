@@ -1,32 +1,28 @@
-package src
-
-import src.enums.Dish
+package src.models
 
 /**
- * Class for drink items of the src.Menu
- * @param dish type of dish
- * @param weight weight of the dish
+ * Class for drink items of the src.models.Menu
+ * @param alco existence of alcohol
+ * @param sizeml volume (size) in ml
  */
-class MainMenuItem(
+class DrinkMenuItem(
     name: String, description: String, price: Double, cuisine: String,
-    dish: Dish, weight: Int
+    alco: Boolean, sizeml: Int
 ) : MenuItem(name, description, price, cuisine)
 {
-
-    var dish = dish
+    var alco = alco
         get() = field
         set(value) {
             field = value
         }
-    var weight = weight
+    var sizeml = sizeml
         get() = field
         set(value) {
             field = value
         }
 
     override fun toString(): String {
-        return "src.MainMenuItem(dish=$dish, weight=$weight)\n"
+        return "src.models.DrinkMenuItem(alco=$alco, sizeml=$sizeml)\n"
     }
-
 
 }

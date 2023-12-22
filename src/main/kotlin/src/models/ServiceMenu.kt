@@ -1,4 +1,4 @@
-package src
+package src.models
 
 import src.enums.Desert
 import src.enums.Dish
@@ -39,7 +39,7 @@ class ServiceMenu {
 
             val clientProc = Clients(name, tableNumber)
 
-            println("src.Menu:")
+            println("src.models.Menu:")
             val menuItems = getMenuItems()
             menuItems.forEachIndexed { index, menuItem ->
                 println("${index + 1}. ${menuItem.name} - ${menuItem.price} UAH")
@@ -67,7 +67,7 @@ class ServiceMenu {
             clients.add(client)
             println(clients)
 
-            println("src.Order for ${client.name} (table ${client.table_num}):")
+            println("src.models.Order for ${client.name} (table ${client.table_num}):")
             for (item in client.list_of_dishes) {
                 println(item)
             }

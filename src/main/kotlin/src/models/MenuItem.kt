@@ -1,7 +1,7 @@
-package src
+package src.models
 
 /**
- * Class for dish - item of the src.Menu
+ * Class for dish - item of the src.models.Menu
  * @param name name of item
  * @param cuisine cuisine of dish
  * @param price price in UAH

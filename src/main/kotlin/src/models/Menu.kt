@@ -1,4 +1,4 @@
-package src
+package src.models
 
 class Menu private constructor() {
     /**
@@ -13,7 +13,7 @@ class Menu private constructor() {
     val items = mutableListOf<MenuItem>()
 
     /**
-     * Add dish to src.Menu
+     * Add dish to src.models.Menu
      * @param menuItem dish, item of menu
      */
     fun AddMenuItem(menuItem: MenuItem) {
@@ -21,7 +21,7 @@ class Menu private constructor() {
     }
 
     /**
-     * Delete dish from src.Menu by index
+     * Delete dish from src.models.Menu by index
      * @param index index of the dish to delete
      */
     fun RemoveMenuItem(index: Int) {
@@ -34,6 +34,6 @@ class Menu private constructor() {
      * Returns a string representation of the object.
      */
     override fun toString(): String {
-        return "src.Menu(items=$items)"
+        return "src.models.Menu(items=$items)"
     }
 }
