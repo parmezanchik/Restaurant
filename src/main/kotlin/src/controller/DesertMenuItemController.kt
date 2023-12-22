@@ -5,7 +5,7 @@ import src.models.DesertMenuItem
 import src.service.DesertMenuItemService
 
 @RestController
-@RequestMapping("/api/mainMenuItem")
+@RequestMapping("/api/desertMenuItem")
 class DesertMenuItemController (private val desertMenuItemService: DesertMenuItemService) {
 
     @GetMapping

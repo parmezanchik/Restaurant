@@ -5,7 +5,7 @@ import src.models.DrinkMenuItem
 import src.service.DrinkMenuItemService
 
 @RestController
-@RequestMapping("/api/mainMenuItem")
+@RequestMapping("/api/drinkMenuItem")
 class DrinkMenuItemController (private val drinkMenuItemService: DrinkMenuItemService) {
 
     @GetMapping
